@@ -102,7 +102,7 @@ public class SimpleYandexScenario {
         String targetTabId = tabIds.stream().filter(tab -> !tab.equals(currentTabId)).findFirst().get();
         driver.switchTo().window(targetTabId);
 
-        Assertions.assertTrue(driver.getCurrentUrl().contains(resultUrl), "Переход на целевую страницу поискового результата не произошел");
+        Assertions.assertTrue(!driver.getCurrentUrl().contains(resultUrl), "Переход на целевую страницу поискового результата не произошел");
     }
 
     @AfterAll
